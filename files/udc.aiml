@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+  <category>
+    <pattern>SIAPA KAMU</pattern>
+    <template>
+      Saya adalah bot yang menjelaskan jurnal mengenai perbandingan model
+      <b>IndoBERT</b>, <b>IndoRoBERTa</b>, dan <b>IndoBERTweet</b> pada tugas
+      pemrosesan bahasa alami bahasa Indonesia.
+    </template>
+  </category>
+
+  <category>
+    <pattern>KAMU SIAPA</pattern>
+    <template><srai>SIAPA KAMU</srai></template>
+  </category>
+
+  <category>
+    <pattern>WHO ARE YOU</pattern>
+    <template><srai>SIAPA KAMU</srai></template>
+  </category>
+
+  <category>
+    <pattern>PERKENALKAN DIRI</pattern>
+    <template><srai>SIAPA KAMU</srai></template>
+  </category>
+
+  <!-- Satu kategori induk untuk sapaan -->
+  <category>
+    <pattern>HALO</pattern>
+    <template>
+      Halo. Saya siap menjelaskan jurnal tentang IndoBERT, IndoRoBERTa, dan IndoBERTweet.
+      Anda dapat menanyakan judul, abstrak, latar belakang, metode, dataset, hasil,
+      maupun keterbatasan penelitian.
+    </template>
+  </category>
+
+  <!-- Alias sapaan umum diarahkan ke HALO -->
+  <category>
+    <pattern>HI</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>HAI</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>HAY</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>HELLO</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>HALLO</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>SELAMAT PAGI</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>SELAMAT SIANG</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>SELAMAT SORE</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>SELAMAT MALAM</pattern>
+    <template><srai>HALO</srai></template>
+  </category>
+
+  <category>
+    <pattern>ASSALAMUALAIKUM</pattern>
+    <template>
+      Waalaikumsalam. Senang bertemu dengan Anda.
+      <srai>HALO</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>TERIMA KASIH</pattern>
+    <template>
+      Terima kasih kembali. Jika masih ada pertanyaan mengenai jurnal, silakan diajukan.
+    </template>
+  </category>
+
+  <category>
+    <pattern>THANK YOU</pattern>
+    <template><srai>TERIMA KASIH</srai></template>
+  </category>
+
+  <!-- ================== NAMA PENGGUNA ================== -->
+
+  <category>
+    <pattern>NAMA SAYA *</pattern>
+    <template>
+      <think><set name="user_name"><star/></set></think>
+      Baik, saya mencatat nama Anda sebagai <b><get name="user_name" /></b>.
+      Silakan pilih bagian jurnal yang ingin Anda tanyakan, misalnya: abstrak, metode, dataset, atau hasil.
+    </template>
+  </category>
+
+  <category>
+    <pattern>SAYA *</pattern>
+    <template>
+      <think><set name="user_name"><star/></set></think>
+      Baik, saya akan memanggil Anda <b><get name="user_name" /></b>.
+      Anda dapat bertanya tentang judul, abstrak, dataset, atau hasil penelitian.
+    </template>
+  </category>
+
+  <category>
+    <pattern>SIAPA NAMA SAYA</pattern>
+    <template>
+      <condition name="user_name">
+        <li value="">
+          Anda belum menyebutkan nama. Silakan tulis: NAMA SAYA [nama Anda].
+        </li>
+        <li>
+          Nama yang terakhir Anda berikan adalah <b><get name="user_name" /></b>.
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA NAMA SAYA</pattern>
+    <template><srai>SIAPA NAMA SAYA</srai></template>
+  </category>
+
+  <!-- ================== JUDUL DAN ABSTRAK ================== -->
+
+  <category>
+    <pattern>APA JUDUL JURNALMU</pattern>
+    <template>
+      Judul jurnal yang saya jelaskan adalah:
+      <br/><br/>
+      <b>Perbandingan Kinerja IndoBERT, IndoRoBERTa, dan IndoBERTweet
+      untuk Tugas Klasifikasi Teks Bahasa Indonesia</b>.
+      <br/><br/>
+      Silakan sesuaikan teks ini dengan judul resmi jurnal Anda.
+    </template>
+  </category>
+
+  <!-- Alias untuk judul -->
+  <category>
+    <pattern>JUDUL JURNAL</pattern>
+    <template><srai>APA JUDUL JURNALMU</srai></template>
+  </category>
+
+  <category>
+    <pattern>NAMA JUDUL</pattern>
+    <template><srai>APA JUDUL JURNALMU</srai></template>
+  </category>
+
+  <category>
+    <pattern>APA TITLENYA</pattern>
+    <template><srai>APA JUDUL JURNALMU</srai></template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS THE TITLE</pattern>
+    <template><srai>APA JUDUL JURNALMU</srai></template>
+  </category>
+
+  <category>
+    <pattern>TITLE JURNAL</pattern>
+    <template><srai>APA JUDUL JURNALMU</srai></template>
+  </category>
+
+  <category>
+    <pattern>ABSTRAK</pattern>
+    <template>
+      Abstrak jurnal ini menjelaskan bahwa penelitian membandingkan tiga model
+      bahasa pra-latih bahasa Indonesia, yaitu IndoBERT, IndoRoBERTa, dan IndoBERTweet,
+      pada tugas klasifikasi teks. Setiap model di-<i>fine-tuning</i> pada dataset
+      yang sama dan dievaluasi menggunakan metrik akurasi, precision, recall, dan F1-score.
+      Hasil menunjukkan adanya perbedaan kinerja antar model dan memberikan rekomendasi
+      model yang sesuai dengan karakteristik data.
+    </template>
+  </category>
+
+  <!-- Alias untuk abstrak -->
+  <category>
+    <pattern>RINGKASAN JURNAL</pattern>
+    <template><srai>ABSTRAK</srai></template>
+  </category>
+
+  <category>
+    <pattern>SUMMARY</pattern>
+    <template><srai>ABSTRAK</srai></template>
+  </category>
+
+  <category>
+    <pattern>ABSTRACT</pattern>
+    <template><srai>ABSTRAK</srai></template>
+  </category>
+
+  <category>
+    <pattern>INTI JURNAL</pattern>
+    <template><srai>ABSTRAK</srai></template>
+  </category>
+
+  <!-- ================== LATAR BELAKANG DAN TUJUAN ================== -->
+
+  <category>
+    <pattern>LATAR BELAKANG</pattern>
+    <template>
+      Latar belakang penelitian ini adalah meningkatnya jumlah teks berbahasa Indonesia
+      pada berbagai platform digital dan kebutuhan model bahasa yang mampu memahami
+      bahasa formal dan non-formal. Tersedia beberapa model pra-latih bahasa Indonesia,
+      seperti IndoBERT, IndoRoBERTa, dan IndoBERTweet. Penelitian ini dilakukan untuk
+      membandingkan kinerja ketiga model tersebut secara sistematis pada tugas klasifikasi teks.
+    </template>
+  </category>
+
+  <category>
+    <pattern>BACKGROUND</pattern>
+    <template><srai>LATAR BELAKANG</srai></template>
+  </category>
+
+  <category>
+    <pattern>LANDASAN MASALAH</pattern>
+    <template><srai>LATAR BELAKANG</srai></template>
+  </category>
+
+  <category>
+    <pattern>APA TUJUAN PENELITIAN INI</pattern>
+    <template>
+      Tujuan penelitian ini adalah:
+      <br/><br/>
+      1. Membandingkan kinerja IndoBERT, IndoRoBERTa, dan IndoBERTweet pada tugas klasifikasi teks bahasa Indonesia.<br/>
+      2. Mengevaluasi pengaruh proses fine-tuning terhadap kinerja masing-masing model.<br/>
+      3. Memberikan rekomendasi pemilihan model yang sesuai dengan karakteristik data.
+    </template>
+  </category>
+
+  <category>
+    <pattern>TUJUAN PENELITIAN</pattern>
+    <template><srai>APA TUJUAN PENELITIAN INI</srai></template>
+  </category>
+
+  <category>
+    <pattern>RESEARCH OBJECTIVE</pattern>
+    <template><srai>APA TUJUAN PENELITIAN INI</srai></template>
+  </category>
+
+  <!-- ================== DATASET DAN PRA-PROSES ================== -->
+
+  <category>
+    <pattern>DATASET APA YANG DIGUNAKAN</pattern>
+    <template>
+      Penelitian ini menggunakan dataset teks berbahasa Indonesia yang berisi pasangan
+      teks dan label untuk tugas klasifikasi. Dataset dapat berupa komentar media sosial,
+      ulasan, atau teks lain. Nama dataset, jumlah data, dan sumber data mengikuti
+      isi jurnal yang Anda tulis.
+    </template>
+  </category>
+
+  <category>
+    <pattern>DATASET</pattern>
+    <template><srai>DATASET APA YANG DIGUNAKAN</srai></template>
+  </category>
+
+  <category>
+    <pattern>APA DATA YANG DIPAKAI</pattern>
+    <template><srai>DATASET APA YANG DIGUNAKAN</srai></template>
+  </category>
+
+  <category>
+    <pattern>BERAPA JUMLAH DATASET</pattern>
+    <template>
+      Jumlah dataset dijelaskan dalam jurnal. Contohnya, data dapat dibagi menjadi
+      data pelatihan, validasi, dan pengujian, dengan rasio seperti 80% pelatihan,
+      10% validasi, dan 10% pengujian. Angka pasti mengikuti jurnal Anda.
+    </template>
+  </category>
+
+  <category>
+    <pattern>JUMLAH DATA</pattern>
+    <template><srai>BERAPA JUMLAH DATASET</srai></template>
+  </category>
+
+  <category>
+    <pattern>BAGAIMANA PEMBAGIAN DATA</pattern>
+    <template>
+      Data biasanya dibagi menjadi tiga bagian: data pelatihan, data validasi,
+      dan data pengujian. Rasio pembagian dapat berupa 80:10:10 atau 70:15:15,
+      disesuaikan dengan rancangan eksperimen pada jurnal Anda.
+    </template>
+  </category>
+
+  <category>
+    <pattern>PEMBAGIAN DATA</pattern>
+    <template><srai>BAGAIMANA PEMBAGIAN DATA</srai></template>
+  </category>
+
+  <category>
+    <pattern>APA SAJA PRA PROSES DATA</pattern>
+    <template>
+      Pra-proses data meliputi normalisasi teks, penghapusan karakter yang tidak relevan,
+      penanganan URL, mention, dan hashtag bila data berasal dari media sosial,
+      serta tokenisasi menggunakan tokenizer resmi untuk IndoBERT, IndoRoBERTa,
+      dan IndoBERTweet.
+    </template>
+  </category>
+
+  <category>
+    <pattern>PREPROCESSING</pattern>
+    <template><srai>APA SAJA PRA PROSES DATA</srai></template>
+  </category>
+
+  <!-- ================== MODEL DAN METODE ================== -->
+
+  <category>
+    <pattern>MODEL APA SAJA YANG DIBANDINGKAN</pattern>
+    <template>
+      Penelitian ini membandingkan tiga model utama:
+      IndoBERT, IndoRoBERTa, dan IndoBERTweet. Ketiga model tersebut di-fine-tuning
+      pada dataset yang sama untuk tugas klasifikasi teks bahasa Indonesia.
+    </template>
+  </category>
+
+  <category>
+    <pattern>MODEL YANG DIBANDINGKAN</pattern>
+    <template><srai>MODEL APA SAJA YANG DIBANDINGKAN</srai></template>
+  </category>
+
+  <category>
+    <pattern>APA ITU INDOBERT</pattern>
+    <template>
+      IndoBERT adalah model BERT yang dipra-latih menggunakan korpus bahasa Indonesia.
+      Model ini dirancang untuk menangkap representasi konteks bahasa Indonesia
+      dan sering digunakan sebagai dasar untuk berbagai tugas pemrosesan bahasa alami.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA ITU INDOROBERTA</pattern>
+    <template>
+      IndoRoBERTa adalah varian RoBERTa yang diadaptasi untuk bahasa Indonesia.
+      Model ini memanfaatkan strategi pra-latih RoBERTa pada korpus bahasa Indonesia
+      dan merupakan pengembangan dari BERT.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA ITU INDOBERTWEET</pattern>
+    <template>
+      IndoBERTweet adalah model bahasa Indonesia yang dipra-latih terutama pada
+      data media sosial seperti tweet. Model ini lebih peka terhadap bahasa informal
+      dan singkatan yang umum digunakan di media sosial.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APAKAH MODELNYA DI FINE TUNING</pattern>
+    <template>
+      IndoBERT, IndoRoBERTa, dan IndoBERTweet di-fine-tuning pada dataset yang sama.
+      Lapisan klasifikasi ditambahkan di atas keluaran model, kemudian model
+      disesuaikan menggunakan data pelatihan.
+    </template>
+  </category>
+
+  <category>
+    <pattern>APA SAJA HYPERPARAMETER YANG DIGUNAKAN</pattern>
+    <template>
+      Hyperparameter yang digunakan meliputi ukuran batch, nilai learning rate,
+      jumlah epoch, panjang maksimum sequence, dan optimizer seperti AdamW.
+      Nilai spesifik mengikuti pengaturan yang tercantum dalam jurnal Anda.
+    </template>
+  </category>
+
+  <!-- ================== METRIK DAN HASIL ================== -->
+
+  <category>
+    <pattern>METRIK APA SAJA YANG DIGUNAKAN</pattern>
+    <template>
+      Penelitian ini menggunakan metrik akurasi, precision, recall, dan F1-score
+      untuk menilai kinerja model pada tugas klasifikasi teks.
+    </template>
+  </category>
+
+  <category>
+    <pattern>METRIK EVALUASI</pattern>
+    <template><srai>METRIK APA SAJA YANG DIGUNAKAN</srai></template>
+  </category>
+
+  <category>
+    <pattern>HASIL EKSPERIMEN</pattern>
+    <template>
+      Hasil eksperimen menunjukkan adanya perbedaan kinerja antara IndoBERT,
+      IndoRoBERTa, dan IndoBERTweet. Salah satu model memperoleh nilai akurasi
+      dan F1-score yang lebih tinggi. Nilai numerik yang tepat mengikuti
+      tabel hasil pada jurnal Anda.
+    </template>
+  </category>
+
+  <category>
+    <pattern>HASIL PENELITIAN</pattern>
+    <template><srai>HASIL EKSPERIMEN</srai></template>
+  </category>
+
+  <category>
+    <pattern>MODEL MANA YANG PALING BAIK</pattern>
+    <template>
+      Model terbaik ditentukan berdasarkan nilai metrik pada jurnal.
+      Dalam banyak kasus, IndoBERTweet memberikan kinerja yang baik ketika
+      dataset mirip dengan data media sosial. Pemilihan akhir tetap mengacu
+      pada hasil eksperimen yang tercantum dalam jurnal.
+    </template>
+  </category>
+
+  <category>
+    <pattern>MENGAPA INDOBERTWEET BISA LEBIH BAIK</pattern>
+    <template>
+      IndoBERTweet dapat memiliki kinerja lebih baik karena dipra-latih pada data
+      media sosial yang banyak mengandung bahasa informal. Jika dataset penelitian
+      memiliki karakteristik serupa, kesesuaian domain ini dapat meningkatkan kinerja model.
+    </template>
+  </category>
+
+  <category>
+    <pattern>TAMPILKAN TABEL HASIL</pattern>
+    <template>
+      Contoh ringkasan tabel hasil dalam bentuk teks:
+      <br/><br/>
+      Model | Akurasi | F1-score<br/>
+      IndoBERT | nilai_akurasi | nilai_F1<br/>
+      IndoRoBERTa | nilai_akurasi | nilai_F1<br/>
+      IndoBERTweet | nilai_akurasi | nilai_F1<br/>
+      <br/>
+      Nilai numerik diganti sesuai tabel hasil pada jurnal Anda.
+    </template>
+  </category>
+
+  <!-- ================== DISKUSI, KETERBATASAN, SARAN ================== -->
+
+  <category>
+    <pattern>APA KONTRIBUSI PENELITIAN INI</pattern>
+    <template>
+      Kontribusi penelitian ini adalah memberikan analisis komparatif kinerja
+      IndoBERT, IndoRoBERTa, dan IndoBERTweet pada tugas klasifikasi teks
+      bahasa Indonesia, menyediakan hasil eksperimen sebagai acuan pemilihan model,
+      serta menjelaskan pengaruh perbedaan domain pra-latih terhadap kinerja model.
+    </template>
+  </category>
+
+  <category>
+    <pattern>KONTRIBUSI PENELITIAN</pattern>
+    <template><srai>APA KONTRIBUSI PENELITIAN INI</srai></template>
+  </category>
+
+  <category>
+    <pattern>APA KETERBATASAN PENELITIAN INI</pattern>
+    <template>
+      Keterbatasan penelitian dapat berupa jumlah dan variasi dataset yang terbatas,
+      ruang lingkup pengujian hyperparameter yang belum luas, serta analisis
+      kesalahan yang masih dapat dikembangkan. Rincian mengikuti bagian diskusi
+      dalam jurnal Anda.
+    </template>
+  </category>
+
+  <category>
+    <pattern>KETERBATASAN PENELITIAN</pattern>
+    <template><srai>APA KETERBATASAN PENELITIAN INI</srai></template>
+  </category>
+
+  <category>
+    <pattern>APA SARAN UNTUK PENELITIAN LANJUTAN</pattern>
+    <template>
+      Saran penelitian lanjutan adalah memperluas jenis dan domain dataset,
+      menguji model bahasa lain yang lebih baru, melakukan pencarian hyperparameter
+      yang lebih komprehensif, dan menambahkan analisis mengenai bias dan keadilan
+      model dalam bahasa Indonesia.
+    </template>
+  </category>
+
+  <category>
+    <pattern>SARAN PENELITIAN LANJUTAN</pattern>
+    <template><srai>APA SARAN UNTUK PENELITIAN LANJUTAN</srai></template>
+  </category>
+
+  <!-- ================== RINGKASAN DENGAN KONTEKS ================== -->
+
+  <category>
+    <pattern>SINGKATNYA TENTANG JURNAL INI</pattern>
+    <template>
+      <random>
+        <li>Jurnal ini membahas perbandingan kinerja IndoBERT, IndoRoBERTa, dan IndoBERTweet pada tugas klasifikasi teks bahasa Indonesia.</li>
+        <li>Penelitian ini mengevaluasi tiga model bahasa pra-latih Indonesia pada satu dataset klasifikasi untuk menilai perbedaan kinerja.</li>
+        <li>Inti jurnal adalah studi komparatif tiga model bahasa Indonesia pada tugas klasifikasi teks dengan metrik akurasi, precision, recall, dan F1-score.</li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern>RANGKUM JURNAL</pattern>
+    <template>
+      Anda ingin ringkasan <b>pendek</b> atau <b>detail</b>?
+    </template>
+  </category>
+
+  <category>
+    <pattern>PENDEK</pattern>
+    <that>ANDA INGIN RINGKASAN PENDEK ATAU DETAIL?</that>
+    <template>
+      Ringkasan pendek: jurnal ini membandingkan IndoBERT, IndoRoBERTa, dan IndoBERTweet
+      pada tugas klasifikasi teks bahasa Indonesia dan membahas perbedaan kinerja
+      ketiga model.
+    </template>
+  </category>
+
+  <category>
+    <pattern>DETAIL</pattern>
+    <that>ANDA INGIN RINGKASAN PENDEK ATAU DETAIL?</that>
+    <template>
+      Ringkasan detail: penelitian ini menggunakan dataset teks bahasa Indonesia untuk
+      tugas klasifikasi, melakukan pra-proses, membagi data menjadi pelatihan,
+      validasi, dan pengujian, lalu melakukan fine-tuning IndoBERT, IndoRoBERTa,
+      dan IndoBERTweet. Model dievaluasi dengan akurasi, precision, recall, dan F1-score,
+      kemudian hasil dibandingkan untuk memberikan rekomendasi pemilihan model.
+    </template>
+  </category>
+
+  <!-- ================== PENJELASAN UMUM ================== -->
+
+  <category>
+    <pattern>APA ITU FINE TUNING</pattern>
+    <template>
+      Fine-tuning adalah proses menyesuaikan model pra-latih dengan tugas tertentu
+      menggunakan dataset khusus. Model yang sudah memahami pola bahasa umum
+      dilatih kembali agar sesuai dengan tujuan, misalnya klasifikasi sentimen
+      atau deteksi toxic.
+    </template>
+  </category>
+
+  <category>
+    <pattern>MENGAPA PERLU MODEL PRA LATIH</pattern>
+    <template>
+      Model pra-latih dilatih pada korpus besar sehingga mampu mempelajari pola bahasa umum.
+      Dengan model pra-latih, pelatihan untuk tugas khusus menjadi lebih efisien
+      dan biasanya menghasilkan kinerja yang lebih baik dibanding melatih model dari awal.
+    </template>
+  </category>
+
+  <!-- ================== FALLBACK ================== -->
+
+  <category>
+    <pattern>*</pattern>
+    <template>
+      Maaf, saya belum memiliki jawaban spesifik untuk pertanyaan tersebut.
+      Silakan ajukan pertanyaan yang berkaitan dengan jurnal, misalnya:
+      JUDUL JURNAL, ABSTRAK, LATAR BELAKANG, DATASET, MODEL YANG DIBANDINGKAN,
+      METRIK EVALUASI, atau HASIL EKSPERIMEN.
+    </template>
+  </category>
+
+</aiml>
